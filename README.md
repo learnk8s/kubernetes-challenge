@@ -1,5 +1,7 @@
 # Kubernetes challenge
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/uasabi/kubernetes-challenge.svg)](https://greenkeeper.io/)
+
 Deploy this application to [Minikube](https://github.com/kubernetes/minikube) and customise the environment variable to display your name.
 
 ```
