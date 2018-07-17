@@ -23,5 +23,5 @@ There's no need to push the Docker image to a Docker registry. You should be abl
 You can expose Minikube's Docker daemon with:
 
 ```shell
-$ eval $(minkube docker-env)
+$ eval $(minikube docker-env)
 ```
