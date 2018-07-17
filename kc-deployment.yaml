@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kc-deployment
+  labels:
+    app: kc
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: kc
+  template:
+    metadata:
+      labels:
+        app: kc
+    spec:
+      containers:
+      - name: kc
+        image: lk8:v0.1
+        ports:
+        - containerPort: 4000
+        env:
+          - name: NAME
+            valueFrom:
+              configMapKeyRef:
+                name: kc-config
+                key: Name
