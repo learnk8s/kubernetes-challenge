@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: valory-image
+  labels:
+    app: valory-image
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: valory-image
+  template:
+    metadata:
+      labels:
+        app: valory-image
+    spec:
+      containers:
+      - name: nginx
+        image: valory:v1 
+        ports:
+        - containerPort: 4000
+        env:
+          - name: NAME
+            valueFrom:
+              configMapKeyRef:
+                name: valory-cm
+                key: NAME
