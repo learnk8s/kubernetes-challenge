@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-deployment
+  labels:
+    app: sample
+    type: challenge
+spec:
+  template:
+    metadata:
+      name: sample-pod
+      labels:
+        app: sample
+        type: challenge
+    spec:
+      containers:
+        - name: sample-container
+          image: sample-app
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 4000
+          env:
+            - name: NAME
+              value: "MINIKUBE!"
+  replicas: 3
+  selector:
+    matchLabels:
+      type: challenge

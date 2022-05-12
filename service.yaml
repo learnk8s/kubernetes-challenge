@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sample-service
+spec:
+  type: NodePort
+  ports:
+    - targetPort: 4000
+      port: 4000
+      nodePort: 30080
+  selector:
+      type: challenge
